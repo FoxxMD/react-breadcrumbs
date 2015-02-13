@@ -13,7 +13,7 @@ var Breadcrumbs = React.createClass({
     mixins: [ReactRouter.State],
     displayName: "Breadcrumbs",
     render: function () {
-        var separator = " > ";
+        var separator = React.createElement("i", {className: "right chevron icon divider"});
         if("undefined" != typeof this.props.separator){
             separator=this.props.separator;
         }
@@ -55,7 +55,7 @@ var Breadcrumbs = React.createClass({
             }
             if (missingParams === false) {
                 if (i != arr.length - 1) {
-                    link = React.createElement(Link, {to: route.name}, name);
+                    link = React.createElement(Link, {className: "section", to: route.name}, name);
                 } else {
                     separator = "";
                 }
@@ -67,7 +67,7 @@ var Breadcrumbs = React.createClass({
                 );
             }
         });
-        return React.createElement("div", {className: "breadcrumbs"}, breadcrumbs);
+        return React.createElement("div", {className: "ui breadcrumb"}, breadcrumbs);
     }
 });
 
